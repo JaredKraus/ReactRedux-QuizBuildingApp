@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import { getFormValues } from 'redux-form';
@@ -11,18 +12,17 @@ class EditQuiz extends React.Component {
   }
 
   onSubmit = (formValues) => {
-
+    this.props.editQuiz(this.props.match.params.id, formValues);
   }
 
   render() {
-
     if(!this.props.quiz) {
       return <div>Loading...</div>
     }
     return (
       <div>
         <h3>Edit Quiz</h3>
-        <QuizForm initialValues={this.props.quiz} onSubmit={this.onSubmit} currentValues={this.props.currentValues}/>
+        <QuizForm initialValues={_.omit(this.props.quiz, 'id', 'userId')} onSubmit={this.onSubmit} currentValues={this.props.currentValues}/>
       </div>
     );
   }

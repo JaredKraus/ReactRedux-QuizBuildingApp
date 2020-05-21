@@ -49,7 +49,7 @@ class QuizForm extends React.Component {
             <Field name={`q${i+1}`} component={this.renderQuestion} label={`Question ${i+1}`}/>
           {answers.map((v2) => {
               return (
-                <div style={{marginBottom: '20px'}}>
+                <div key={`${v2}${i+1}`} style={{marginBottom: '20px'}}>
                   <div className="inline field">
                     <Field name={`q${i+1}${v2}`} component={this.renderAnswer} label={v2}/>
                     <Field name={`q${i+1}${v2}Corr`} component={this.renderCorrect} type="checkbox" label="Correct Answer:"/>
@@ -176,7 +176,6 @@ const validate = (formValues) => {
     errors.questionAmount = 'Your quiz must have at least one question'
   }
   const arr = formValues.questionAmount && Number(formValues.questionAmount) > 0 ? Array(Number(formValues.questionAmount)) : Array(1)
-  console.log(arr)
   for(let i=0; i < arr.length; i++) {
     if(!formValues[`q${i+1}`]) {
       errors[`q${i+1}`] = `Question ${i+1} must ask a question`
