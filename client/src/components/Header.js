@@ -21,7 +21,7 @@ class Header extends React.Component {
     return (
       <div className="ui secondary pointing menu">
         <Link to="/" className="item">
-          The Quiz Builder 3000
+          Kraus' Quiz Hub
         </Link>
         <div className="right menu">
           <Link to="/quizzes" className="item">
@@ -31,7 +31,7 @@ class Header extends React.Component {
             Create Quiz
           </Link>
           {this.renderMyQuiz()}
-          <GoogleAuth />
+          <GoogleAuth type="ui red google button"/>
         </div>
       </div>
     );
