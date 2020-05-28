@@ -7,10 +7,12 @@ import history from '../../history'
 class ListQuiz extends React.Component {
 
   componentDidMount() {
+    // fetch all quizzes from api
     this.props.fetchQuizzes();
   }
 
   renderOwner(quiz) {
+    // if quiz userId matches current user Id show buttons to edit or delete quiz
     if (quiz.userId === this.props.currentUserId) {
       return (
         <div className="right floated content">
@@ -22,9 +24,10 @@ class ListQuiz extends React.Component {
   }
 
   renderList() {
+    // render list of quizzes
     return this.props.quizzes.map(quiz => {
       return (
-          <div onClick={() => history.push(`/quizzes/take/${quiz.id}`)} to={`/quizzes/take/${quiz.id}`}  className="clickable item" key={quiz.id}>
+          <div onClick={() => history.push(`/quizzes/take/${quiz.id}`)} to={`/quizzes/take/${quiz.id}`}  className="item" key={quiz.id}>
             <div onClick={(e) => e.stopPropagation()}>
               {this.renderOwner(quiz)}
             </div>
@@ -41,6 +44,7 @@ class ListQuiz extends React.Component {
   }
 
   renderCreate = () => {
+    // at bottom add a create quiz button for users signed in
     if(this.props.isSignedIn) {
       return (
         <div style={{ textAlign: 'right' }}>

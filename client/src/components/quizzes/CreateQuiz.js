@@ -8,11 +8,12 @@ import QuizForm from './QuizForm';
 
 class CreateQuiz extends React.Component {
 
-  //calls action creator 'createQuiz'
+  //calls action creator 'createQuiz' when QuizForm is submitted
   onSubmit = (formValues) => {
     this.props.createQuiz(formValues)
   }
 
+  // render QuizForm
   render() {
     return (
       <div>
@@ -23,6 +24,7 @@ class CreateQuiz extends React.Component {
   }
 }
 
+// allows you to pass current values of QuizForm to the component
 const mapStateToProps = (state) => {
   return ({ currentValues: getFormValues("quizForm")(state) })
 }

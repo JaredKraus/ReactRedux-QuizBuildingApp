@@ -6,10 +6,12 @@ import { fetchUserQuiz } from '../../actions/quizActions';
 
 class MyQuiz extends React.Component {
 
+  // fetch all quizzes that make userId
   componentDidMount() {
     this.props.fetchUserQuiz(this.props.match.params.userId);
   }
 
+  // show edit and delete Links if it is the users quiz
   renderOwner(quiz) {
     if (quiz.userId === this.props.currentUserId) {
       return (
@@ -21,6 +23,7 @@ class MyQuiz extends React.Component {
     }
   }
 
+  // render a list of all the user quizzes
   renderOutput() {
     return this.props.quizzes.map(quiz => {
       return (
@@ -38,8 +41,8 @@ class MyQuiz extends React.Component {
     })
   }
 
-
   render() {
+    // if statement to allow the current userId to load
     if (this.props.isSignedIn === null) {
       return <h5>Loading...</h5>
     } else if (this.props.match.params.userId !== this.props.currentUserId) {

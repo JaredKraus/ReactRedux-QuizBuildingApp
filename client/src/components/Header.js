@@ -5,6 +5,7 @@ import GoogleAuth from './GoogleAuth';
 
 class Header extends React.Component {
 
+  // render my quizzes link if user is logged in
   renderMyQuiz() {
     if(this.props.isSignedIn) {
       return (
@@ -17,6 +18,7 @@ class Header extends React.Component {
     }
   }
 
+  // render create quiz link if user is logged in
   renderCreateQuiz() {
     if(this.props.isSignedIn) {
       return (
@@ -29,6 +31,7 @@ class Header extends React.Component {
     }
   }
 
+  //render name, take quiz and google auth 
   render() {
     return (
       <div className="ui secondary pointing menu">

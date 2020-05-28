@@ -3,18 +3,24 @@ import { connect } from 'react-redux';
 import { initAuth, changeAuth, trySignIn, trySignOut } from '../actions/gauthActions';
 
 class GoogleAuth extends React.Component {
+
   componentDidMount() {
+    // initialize google auth on mount
     this.props.initAuth()
   }
 
+  // call trySignIn action creator
   onSignInClick = () => {
     this.props.trySignIn()
   };
 
+  // call trySignOut action creator
   onSignOutClick = () => {
     this.props.trySignOut()
   };
 
+  // render Google Auth button
+  // if user signed in show sign out and vise versa
   renderAuthButton() {
       if(this.props.isSignedIn === null) {
         return null;

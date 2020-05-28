@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm, getFormValues } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 
 class QuizForm extends React.Component {
 
@@ -163,10 +163,7 @@ class QuizForm extends React.Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return ({ currentValues: getFormValues('quizForm')(state) })
-// }
-
+// validations for the form
 const validate = (formValues) => {
   const errors = {};
   if(!formValues.title) {

@@ -6,6 +6,7 @@ import GoogleAuth from './GoogleAuth';
 
 class HomeScreen extends React.Component {
 
+  // render create Quiz link if user is logged in
   renderCreate() {
     if(this.props.isSignedIn === null) {
       return <button className="fluid ui loading button">Loading...</button>
@@ -21,6 +22,7 @@ class HomeScreen extends React.Component {
 
   }
 
+  // render home screen with name, GoogleAuth component and take quiz link
   render() {
     return (
       <div style={{marginTop: '100px'}}>

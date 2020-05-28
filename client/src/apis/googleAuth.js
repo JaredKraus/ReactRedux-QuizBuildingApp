@@ -5,6 +5,7 @@ export default class googleAuth {
     this.auth = null
   }
 
+  //initialize google auth api
   init = () => {
     return new Promise((res, rej) => {
       window.gapi.load('client:auth2', () => {
@@ -20,22 +21,27 @@ export default class googleAuth {
     })
   }
 
+  // get if user is signed in from google api
   isSignedIn() {
     return this.auth.isSignedIn.get()
   }
 
+  // listen for a change in sign-in status
   listen(action) {
     return this.auth.isSignedIn.listen(action)
   }
 
+  // sign a user in using google auth
   signIn() {
     return this.auth.signIn()
   }
 
+    // sign a user out using google auth
   signOut() {
     return this.auth.signOut()
   }
 
+  // get a signed in users id 
   userId() {
     return this.auth.currentUser.get().getId()
   }

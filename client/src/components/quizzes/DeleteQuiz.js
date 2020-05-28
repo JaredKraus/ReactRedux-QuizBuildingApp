@@ -8,10 +8,13 @@ import { fetchQuiz, deleteQuiz } from '../../actions/quizActions';
 class DeleteQuiz extends React.Component {
 
   componentDidMount() {
+    // using id fetch the quiz user is trying to delete
     this.props.fetchQuiz(this.props.match.params.id)
   }
 
   renderActions() {
+    // render button that calls deleteQuiz action creator
+    // render cancel button
     return(
       <React.Fragment>
         <button onClick={() => this.props.deleteQuiz(this.props.match.params.id)} className="ui button negative">Delete</button>
@@ -21,6 +24,7 @@ class DeleteQuiz extends React.Component {
   }
 
   render() {
+    // render Modal component
     return (
       <Modal
         title="Delete Quiz"
