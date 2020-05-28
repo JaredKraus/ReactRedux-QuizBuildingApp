@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import { fetchQuizzes } from '../../actions/quizActions';
+import history from '../../history'
 
 class ListQuiz extends React.Component {
 
@@ -23,16 +24,18 @@ class ListQuiz extends React.Component {
   renderList() {
     return this.props.quizzes.map(quiz => {
       return (
-        <div className="item" key={quiz.id}>
-          {this.renderOwner(quiz)}
-          <i className="large middle aligned icon clipboard outline" />
-          <div className="content">
-            {quiz.title}
-            <div className="Number of Questions">
-              {`Number of Questions: ${quiz.questionAmount}`}
+          <div onClick={() => history.push(`/quizzes/take/${quiz.id}`)} to={`/quizzes/take/${quiz.id}`}  className="clickable item" key={quiz.id}>
+            <div onClick={(e) => e.stopPropagation()}>
+              {this.renderOwner(quiz)}
+            </div>
+            <i className="large middle aligned icon clipboard outline" />
+            <div className="content">
+              {quiz.title}
+              <div className="Number of Questions">
+                {`Number of Questions: ${quiz.questionAmount}`}
+              </div>
             </div>
           </div>
-        </div>
       );
     })
   }

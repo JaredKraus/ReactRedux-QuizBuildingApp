@@ -17,6 +17,18 @@ class Header extends React.Component {
     }
   }
 
+  renderCreateQuiz() {
+    if(this.props.isSignedIn) {
+      return (
+        <div>
+          <Link to="/quizzes/create" className="item">
+            Create Quiz
+          </Link>
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="ui secondary pointing menu">
@@ -27,9 +39,7 @@ class Header extends React.Component {
           <Link to="/quizzes" className="item">
             Take Quiz
           </Link>
-          <Link to="/quizzes/create" className="item">
-            Create Quiz
-          </Link>
+          {this.renderCreateQuiz()}
           {this.renderMyQuiz()}
           <GoogleAuth type="ui red google button"/>
         </div>
