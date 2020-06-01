@@ -1,4 +1,4 @@
-import { CREATE_QUIZ, FETCH_QUIZ, FETCH_QUIZZES, EDIT_QUIZ, DELETE_QUIZ, FETCH_USER_QUIZ} from './types'
+import { CREATE_QUIZ, FETCH_QUIZ, FETCH_QUIZZES, EDIT_QUIZ, DELETE_QUIZ, FETCH_USER_QUIZ, TAKE_QUIZ} from './types'
 import axios from '../apis/axios'
 import history from '../history';
 
@@ -46,4 +46,9 @@ export const deleteQuiz = (id) => async (dispatch, getState) => {
   await axios.delete(`/quizzes/${id}`);
   dispatch({ type: DELETE_QUIZ, payload: id })
   history.push(`/quizzes/my/${userId}`)
+}
+
+export const takeQuiz = (results) => dispatch => {
+  dispatch({type: TAKE_QUIZ, payload: results})
+  history.push('/quizzes/results')
 }

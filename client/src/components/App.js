@@ -7,6 +7,7 @@ import DeleteQuiz from './quizzes/DeleteQuiz';
 import ListQuiz from './quizzes/ListQuiz';
 import MyQuiz from './quizzes/MyQuiz';
 import TakeQuiz from './quizzes/TakeQuiz';
+import ResultsQuiz from './quizzes/ResultsQuiz'
 import HomeScreen from './HomeScreen';
 import history from '../history';
 
@@ -26,6 +27,7 @@ class App extends React.Component {
               <Route path="/quizzes/delete/:id" component={DeleteQuiz} exact />
               <Route path="/quizzes/take/:id" component={TakeQuiz} exact />
               <Route path="/quizzes/my/:userId" component={MyQuiz} exact />
+              <Route path="/quizzes/results" component={ResultsQuiz} exact />
             </Switch>
           </div>
         </Router>

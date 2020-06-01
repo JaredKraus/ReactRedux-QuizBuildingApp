@@ -125,6 +125,15 @@ class QuizForm extends React.Component {
 
   //calls action creator 'createQuiz'
   onSubmit = (formValues) => {
+    //turn undefined values into falses
+    const answers = ['A', 'B', 'C', 'D']
+    for(let i=0; i < formValues.questionAmount; i++) {
+      for(let j=0; j < answers.length; j++){
+        if(!formValues[`q${i+1}${answers[j]}Corr`]) {
+          formValues[`q${i+1}${answers[j]}Corr`] = false;
+        }
+      }
+    }
     this.props.onSubmit(formValues)
   }
 
