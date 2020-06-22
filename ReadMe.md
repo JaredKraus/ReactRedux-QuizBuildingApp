@@ -1,3 +1,5 @@
 # MC Quiz Builder and Taker
 
-This App using Google Authentication and allows users to Create, Edit, Delete, and Take Quizzes.
+• Developed an app that allows users to create, take, edit, delete quizzes.
+• Included: JavaScript, react, redux, react-redux, react-dom, react-router-dom, redux-thunk, redux-form, axios, lodash, REST-ful API, OAuth, Node.js, ect.
+
